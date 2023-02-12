@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-   public static SoundManager Instance;
+    public static SoundManager Instance;
+    [SerializeField] private AudioSource audioSource;
 
     void Awake()
     {
         if (Instance == null)
         {
-            Instance == this;
+            Instance = this;
             DontDestroyOnLoad(gameObject);
             return;
         }
@@ -20,5 +21,11 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
+    }
+
+
+
 }
