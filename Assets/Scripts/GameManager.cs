@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     private string highScoreKey = "HighScore";
     private int currentScore;
 
-    public const string mainMenu = "MainMenu";
+    public const string mainMenu = "MenuScene";
     public const string Gameplay = "Gameplay";
 
     void Awake()
