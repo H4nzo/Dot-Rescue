@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public GameManager Instance;
+    public static GameManager Instance;
     private string highScoreKey = "HighScore";
     private int currentScore;
 
