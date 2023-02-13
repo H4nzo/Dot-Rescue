@@ -4,15 +4,41 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]float minRotSpeed, maxRotSpeed;
+    float currentRotSpeed;
+
+    [SerializeField]float minRotTime, maxRotTime;
+    float rotTime;
+    float currentRotTime;
+
+    void Awake()
     {
-        
+        currentRotTime = 0f;
+        currentRotSpeed = minRotSpeed + (maxRotSpeed - minRotSpeed) * 0.1f * Random.Range(0,11);
+        rotTime = minRotTime + (maxRotTime - minRotTime) * 0.1f * Random.Range(0,11);
+
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        currentRotTime += Time.deltaTime;
+
+        if (currentRotTime > rotTime)
+        {
+            currentRotTime = 0f;
+            currentRotSpeed = minRotSpeed + (maxRotSpeed - minRotSpeed) * 0.1f * Random.Range(0, 11);
+            rotTime = minRotTime + (maxRotTime - minRotTime) * 0.1f * Random.Range(0, 11);
+        }
     }
+    
+    void FixedUpdate()
+    {
+        transform.Rotate(0, 0, currentRotSpeed * Time.fixedDeltaTime);
+    }
+    
+
+
+
+
+
 }
