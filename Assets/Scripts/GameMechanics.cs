@@ -1,18 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameMechanics : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private bool isGameFinished;
+    public Text scoreText;
+    private float score, scoreSpeed;
+    private int currentLevel;
+
+    [SerializeField]private List<int> LevelSpeed, LevelMax;
+
+    void Awake()
     {
-        
+        score = 0f;
+        currentLevel = 0;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+
 }
