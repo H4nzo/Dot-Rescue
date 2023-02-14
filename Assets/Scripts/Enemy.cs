@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
         currentRotTime = 0f;
         currentRotSpeed = minRotSpeed + (maxRotSpeed - minRotSpeed) * 0.1f * Random.Range(0,11);
         rotTime = minRotTime + (maxRotTime - minRotTime) * 0.1f * Random.Range(0,11);
-
+        currentRotSpeed *= Random.Range(0, 2) == 0 ? 1f : -1f;
     }
 
     void Update()
@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour
             currentRotTime = 0f;
             currentRotSpeed = minRotSpeed + (maxRotSpeed - minRotSpeed) * 0.1f * Random.Range(0, 11);
             rotTime = minRotTime + (maxRotTime - minRotTime) * 0.1f * Random.Range(0, 11);
+            currentRotSpeed *= Random.Range(0, 2) == 0 ? 1f : -1f;
         }
     }
     
