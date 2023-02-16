@@ -17,12 +17,17 @@ public class MainMenuScript : MonoBehaviour
         if (!GameManager.Instance.isInitialized)
         {
             scoreText.gameObject.SetActive(false);
-            bestScoreText.gameObject.SetActive(false);
+            // bestScoreText.gameObject.SetActive(false);
         }
         else
         {
             StartCoroutine(ShowScore());
         }
+    }
+
+    void Start()
+    {
+        bestScoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
     }
 
     IEnumerator ShowScore()
@@ -35,15 +40,15 @@ public class MainMenuScript : MonoBehaviour
 
         if (highScore < currentScore)
         {
-            newBestText.gameObject.SetActive(true);
+            // newBestText.gameObject.SetActive(true);
             GameManager.Instance.HighScore = currentScore;
         }
         else
         {
             newBestText.gameObject.SetActive(false);
         }
-         bestScoreText.text = GameManager.Instance.HighScore.ToString();
-         
+        bestScoreText.text = GameManager.Instance.HighScore.ToString();
+
         float speed = 1 / animationTime;
         float timeElapsed = 0f;
 
